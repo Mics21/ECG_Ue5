@@ -66,7 +66,7 @@ bool sphere::closest_intersection(intersection_info* hit, float min_lambda, prim
 
 	for(int i = 0; i < lsg; i++){
 		//if(Schnittpunkt liegt im Intervall von lambda)
-		if(min_lambda > ts[i] && ts[i] < hit->get_lambda()){
+		if(min_lambda < ts[i] && ts[i] < hit->get_lambda()){
 			hit->set_lambda(ts[i]);
 			hit->set_object(this);
 			calc_normal(hit);
