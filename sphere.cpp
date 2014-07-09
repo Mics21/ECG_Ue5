@@ -63,7 +63,7 @@ bool sphere::closest_intersection(intersection_info* hit, float min_lambda, prim
 
 	int lsg = solve_real_quadratic(a, b, c, ts);
 
-	boolean result = false;
+	bool result = false;
 	for(int i = 0; i < lsg; i++){
 		//if(Schnittpunkt liegt im Intervall von lambda)
 		if(min_lambda < ts[i] && ts[i] < hit->get_lambda()){
