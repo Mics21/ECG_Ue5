@@ -63,18 +63,18 @@ bool sphere::closest_intersection(intersection_info* hit, float min_lambda, prim
 
 	int lsg = solve_real_quadratic(a, b, c, ts);
 
-
+	boolean result = false;
 	for(int i = 0; i < lsg; i++){
 		//if(Schnittpunkt liegt im Intervall von lambda)
 		if(min_lambda < ts[i] && ts[i] < hit->get_lambda()){
 			hit->set_lambda(ts[i]);
 			hit->set_object(this);
 			calc_normal(hit);
-			return true;
+			result = true;
 		}
 	}
 
-	return false;
+	return result;
 	//student end
 }
 
@@ -99,7 +99,7 @@ bool sphere::any_intersection(ray<float>& r,float min_lambda,float max_lambda, p
 	b = 2*dot(ray_to,ray_center_vector);
 	c = ray_center_vector.sqr_length() - sqr_radius;
 
-	//lsg = Anzahl der Lösungen der quadr. Gl.
+	//lsg = Anzahl der Lï¿½sungen der quadr. Gl.
 	int lsg = solve_real_quadratic(a, b, c, ts);
 	
 	switch(lsg){
